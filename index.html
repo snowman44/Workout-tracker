@@ -21,7 +21,7 @@
     <main id="app"></main>
   </div>
 <script>
-const STORAGE_KEY = 'nick_simple_workout_tracker_v2';
+const STORAGE_KEY = 'nick_simple_workout_tracker_v3';
 const workouts = {
  day1:{title:'Day 1',subtitle:'Push + Posterior Chain',bestFor:'RecPlex or work gym',restDefault:90,focus:'Chest, rows, hamstrings, glutes, lower back, pull-up path',exercises:[
   ex('Incline Walk + Hip Openers','warmup','8 min',1,30,'Easy pace. Open hips, loosen back, get warm without rushing.'),
@@ -55,6 +55,37 @@ const workouts = {
   ex('Cable Woodchop','core','3 x 10–12 each side',3,60,'Athletic core. Rotate through torso, stay controlled.'),
   ex('Conditioning Choice','conditioning','10–15 min',1,30,'Incline walk, bike, rower, sled, or something fun with Logan.')
  ]},
+ home1:{title:'Home Day 1',subtitle:'Bodyweight Push + Posterior Chain',bestFor:'Gym closed / home backup',restDefault:60,focus:'Glutes, hamstrings, chest, upper back, core',exercises:[
+  ex('Warm-Up Walk or March + Hip Openers','warmup','5–8 min',1,30,'Walk outside, march in place, or use stairs lightly. Add hip circles and bodyweight squats.'),
+  ex('Tempo Bodyweight Squat','posterior','3 x 10–15',3,60,'Three seconds down, pause, drive up through mid-foot/heel. Add backpack if easy.'),
+  ex('Glute Bridge / Single-Leg Glute Bridge','posterior','3 x 12–15',3,60,'Squeeze glutes at the top. Use single-leg reps if bodyweight is too easy.'),
+  ex('Push-Up / Incline Push-Up','strength','3 x 6–12',3,60,'Hands on counter/couch if needed. Keep body straight and reps clean.'),
+  ex('Backpack Row / Towel Door Row','strength','3 x 10–15',3,60,'Use a loaded backpack or a safe towel row setup. Pull elbows back and squeeze shoulder blades.'),
+  ex('Hip Hinge Good Morning','posterior','3 x 12',3,60,'Hands across chest or backpack on back. Hips back, hamstring stretch, neutral spine.'),
+  ex('Prone Y-T-W / Floor Back Extension Hold','mobility-strength','2–3 x 8 each',3,45,'Upper back and low-back endurance. Move slow; do not crank your neck.'),
+  ex('Front Plank','core','3 x 20–45 sec',3,45,'Ribs down, glutes tight, breathe. Stop before your low back sags.'),
+  ex('Easy Walk Finish','conditioning','5–10 min',1,30,'Walk outside if possible. Keep it easy and count it as keeping the habit alive.')
+ ]},
+ home2:{title:'Home Day 2',subtitle:'Glute/Hamstring Angie Option',bestFor:'At home with Angie',restDefault:60,focus:'Glutes, legs, hips, hamstrings, core',exercises:[
+  ex('Warm-Up: Walk + Dynamic Hips','warmup','5 min',1,30,'Easy walk, hip circles, leg swings, and a few slow squats.'),
+  ex('Couch Hip Thrust / Glute Bridge','posterior','4 x 10–15',4,60,'Main lift today. Shoulders on couch if comfortable. Pause hard at lockout.'),
+  ex('Reverse Lunge / Split Squat','posterior','3 x 8–12 each leg',3,75,'Slight forward lean to bias glutes. Hold wall/chair for balance if needed.'),
+  ex('Hamstring Walkout','posterior','3 x 6–10',3,60,'Start in bridge, slowly walk heels out and back. Big hamstring focus.'),
+  ex('Frog Pump / Banded Glute Bridge','posterior','2–3 x 20',3,45,'High-rep glute burn. Feet together, knees out, squeeze at the top.'),
+  ex('Side-Lying Leg Raise / Clamshell','posterior','3 x 15 each side',3,45,'Glute medius for hips and shape. Slow and controlled.'),
+  ex('Dead Bug','core','3 x 8 each side',3,45,'Low back stays down. Slow reps.'),
+  ex('Hip Flexor + Figure-4 Stretch','mobility','5 min',1,30,'Easy stretching. Do not force range of motion.')
+ ]},
+ home3:{title:'Home Day 3',subtitle:'Athletic Conditioning + Core',bestFor:'No equipment / Logan option',restDefault:45,focus:'Conditioning, legs, chest, core, mobility',exercises:[
+  ex('Warm-Up: Walk / Stairs / March','warmup','5 min',1,30,'Get warm without jumping straight into intensity.'),
+  ex('Step-Up / Stair Step-Up','posterior','3 x 10 each leg',3,60,'Use stairs or a sturdy step. Drive through the working leg.'),
+  ex('Push-Up Ladder','strength','4 sets',4,45,'Do clean sets. Stop 1–2 reps before sloppy form.'),
+  ex('Wall Sit','posterior','3 x 30–60 sec',3,60,'Quads and glutes. Keep back flat against wall.'),
+  ex('Bear Crawl / Slow Mountain Climber','conditioning','3 x 20–40 sec',3,45,'Athletic core. Keep hips controlled; skip if wrists bother you.'),
+  ex('Superman Hold / Bird Dog','core','3 x 8–12',3,45,'Choose bird dog if low back feels sensitive.'),
+  ex('Side Plank','core','3 x 20–40 sec each side',3,45,'Waist/core stability. Quality over time.'),
+  ex('Cool Down Walk + Hips','mobility','5–10 min',1,30,'Easy walk and hip flexor stretch to finish.')
+ ]},
  workA:{title:'Work Morning A',subtitle:'Hip + Back Reset',bestFor:'15–20 min, no sweat',restDefault:30,focus:'Mobility, hips, lower back, light pull-up practice',exercises:[
   ex('Easy Walk','mobility','5 min',1,20,'Easy pace. Just get moving.'),ex('Hip Flexor Stretch','mobility','2 x 30 sec each',2,20,'Squeeze glute on the back leg.'),ex('Dead Bug','core','2 x 8 each',2,30,'Low back stays down.'),ex('Dead Hang / Scap Pull','pullup','2–3 easy sets',3,30,'Stop before grip fails. Build the habit.'),ex('Cat/Cow + Breathing','mobility','2 min',1,20,'Loosen spine and slow down before work.')
  ]},
@@ -65,7 +96,7 @@ const workouts = {
   ex('Easy Walk','mobility','5 min',1,20,'Easy pace.'),ex('Band Pull-Apart / Face Pull','mobility-strength','2 x 15',2,30,'Shoulders down and back.'),ex('Deep Squat Hold','mobility','2 x 30 sec',2,30,'Use a rack or doorframe for support.'),ex('Side Plank','core','2 x 20–30 sec each',2,30,'Build waist/core strength without crunching.'),ex('Thoracic Rotation','mobility','2 x 8 each',2,20,'Open upper back.')
  ]}
 };
-const order=['day1','day2','day3','workA','workB','workC'];
+const order=['day1','day2','day3','home1','home2','home3','workA','workB','workC'];
 function ex(name,type,target,sets,rest,notes){return {name,type,target,sets,rest,notes};}
 let appState=loadState(), screen='home', selectedWorkout='day1', exerciseIndex=0, session=null, timer=null, seconds=90, running=false, deferredPrompt=null;
 window.addEventListener('beforeinstallprompt', (e)=>{ e.preventDefault(); deferredPrompt=e; render(); });

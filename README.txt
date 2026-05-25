@@ -13,3 +13,10 @@ Easiest ways to use it:
 5. The app will appear on your phone like a normal app.
 
 Your workout history is stored locally on that phone/browser. If browser storage is cleared, the history can be lost.
+
+
+UPDATE NOTES - Home Workout Version
+- Added Home Day 1, Home Day 2, and Home Day 3.
+- Home Day 2 is the glute/hamstring Angie-friendly version.
+- To update GitHub Pages from your phone, upload and overwrite index.html, manifest.json, service-worker.js, and the icons folder.
+- If the app does not change right away, refresh the page, close/reopen Chrome, or wait a few minutes for GitHub Pages and the service worker cache to update.
